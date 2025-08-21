@@ -1,13 +1,68 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Contador de Personas</title>
-    </head>
-    <body>
-        <h1>People entered:</h1>
-        <h2 id="count-el"></h2>
-        <button onclick="increment()">INCREMENT</button>
-        <button onclick="save()">SAVE</button>
-        <script src="index.js"></script>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Personas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            font-size: 50px;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #save-el {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personas que ingresaron:</h1>
+    <h2 id="count-el">0</h2>
+    <button onclick="increment()">INCREMENTAR</button>
+    <button onclick="save()">GUARDAR</button>
+    <p id="save-el">Registros anteriores: </p>
+
+    <script>
+        let count = 0;
+        let saveEl = document.getElementById("save-el");
+        let countEl = document.getElementById("count-el");
+        
+        function increment() {
+            count += 1;
+            countEl.textContent = count;
+        }
+        
+        function save() {
+            let countStr = count + " - ";
+            saveEl.textContent += countStr;
+            count = 0;
+            countEl.textContent = 0;
+        }
+    </script>
+</body>
 </html>
